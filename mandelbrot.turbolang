@@ -1,0 +1,64 @@
+func getCharWithDensity(x) {
+	if x > 0.9 { return '@'; }
+	if x > 0.8 { return '%'; }
+	if x > 0.7 { return '#'; }
+	if x > 0.6 { return '*'; }
+	if x > 0.5 { return '+'; }
+	if x > 0.4 { return '='; }
+	if x > 0.3 { return '-'; }
+	if x > 0.2 { return ':'; }
+	if x > 0.1 { return '.'; }
+	
+	return ' ';
+}
+
+func escape(cr, ci, maxIters) {
+	var zr = 0;
+	var zi = 0;
+	
+	for var iters = 0; iters < maxIters; iters += 1 {
+		var r2 = zr * zr;
+		var i2 = zi * zi;
+	
+		if r2 + i2 > 4 {
+			return iters;
+		}
+		
+		zi = ci + zr * zi * 2;
+		zr = cr + r2 - i2;
+	}
+	
+	return maxIters;
+}
+
+func mandel() {
+	var width    = 200;
+	var height   = 200;
+	var maxIters = 150;
+	
+	var switch = 1;
+	
+	for var y = 0; y < height; y += 1 {
+		for var x = 0; x < width; x += 1 {
+			var zr = (x / (width  - 1)) * 2 - 1.5;
+			var zi = (y / (height - 1)) * 2 - 1;
+			
+			var t  = escape(zr, zi, maxIters) / maxIters;
+			var ch = getCharWithDensity(t);
+			
+			switch = 0 - switch;
+			
+			if switch < 0 {
+				stdPrintChar(ch);
+			}
+			
+			stdPrintChar(ch); stdPrintChar(ch);
+		}
+		
+		stdPrintChar(10);
+	}
+}
+
+func main() {
+	mandel();
+}
