@@ -36,7 +36,7 @@ func mandel() {
 	var height   = 200;
 	var maxIters = 150;
 	
-	var switch = 1;
+	var switch = 0;
 	
 	for var y = 0; y < height; y += 1 {
 		for var x = 0; x < width; x += 1 {
@@ -46,9 +46,9 @@ func mandel() {
 			var t  = escape(zr, zi, maxIters) / maxIters;
 			var ch = getCharWithDensity(t);
 			
-			switch = 0 - switch;
+			switch = !switch;
 			
-			if switch < 0 {
+			if switch {
 				stdPrintChar(ch);
 			}
 			
