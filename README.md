@@ -12,7 +12,7 @@ Because this project uses modern and advanced language features, minimal compile
 
 ## turbolang utilities
 In case you want to use turbolang for your project, you might need some utility functions. They
-are available at (https://github.com/adriankwiatkowski/turbolang-utilities). Repository contains complex programs as well as useful utility functions. It was made by Adrian Kwiatkowski, who is senior kernel engineer working on kernels in turbolang.
+are available at https://github.com/adriankwiatkowski/turbolang-utilities. Repository contains complex programs as well as useful utility functions. It was made by Adrian Kwiatkowski, who is senior kernel engineer working on kernels in turbolang.
 He is reposnsible for developing and maintaning language standard library and spends his free
 time on reverse engineering complex applications.
 
